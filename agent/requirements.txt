@@ -1,0 +1,4 @@
+browser-use>=0.12.0
+playwright>=1.44.0
+reportlab>=4.0.0
+python-dotenv>=1.0.0

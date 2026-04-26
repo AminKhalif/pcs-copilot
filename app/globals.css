@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Exact spec values */
+  --background: #fbf8f1;       /* warm cream — never pure white */
+  --foreground: #1a1f1c;       /* charcoal with slight green warmth */
+
+  --card: #ffffff;
+  --card-foreground: #1a1f1c;
+  --popover: #ffffff;
+  --popover-foreground: #1a1f1c;
+
+  --primary: #1f4d3f;          /* deep forest green */
+  --primary-foreground: #fbf8f1;
+
+  --secondary: #f4efe2;
+  --secondary-foreground: #1a1f1c;
+  --muted: #f4efe2;
+  --muted-foreground: #6b6f6b;
+  --accent: #f4efe2;
+  --accent-foreground: #1a1f1c;
+
+  /* Used only on dollar amounts and "you're owed" moments */
+  --gold: #b8924e;
+  /* Used only on hard deadlines / overdue */
+  --rust: #a85c3d;
+
+  --destructive: #a85c3d;
+  --destructive-foreground: #fbf8f1;
+
+  --border: #e8e2d5;           /* hairline */
+  --input: #e8e2d5;
+  --ring: #1f4d3f;
+
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Newsreader', Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-rust: var(--rust);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/40;
+  }
+  html, body {
+    @apply bg-background text-foreground;
+  }
+  body {
+    font-feature-settings: "ss01", "cv11";
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .font-serif {
+    font-feature-settings: "ss01";
+    letter-spacing: -0.018em;
+  }
+  ::selection {
+    background: rgb(184 146 78 / 0.22);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .label-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .card-surface {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgb(31 77 63 / 0.04);
+  }
+  .row-hover:hover {
+    background: #faf7ee;
+  }
+}
